@@ -3,9 +3,10 @@ import { Platform } from 'react-native';
 const colors = {
   white: '#FFF',
   light: '#EEE',
-  dark: '#444',
+  dark: '#333',
   darker: '#666',
   inactive: '#878EA0',
+  grey: '#999',
   primary: '#444A5A',
   secondary: '#7A91CA',
   error: '#FF5A5A',
@@ -18,7 +19,7 @@ const metrics = {
 
 const fonts = {
   big: 24,
-  regular: 14,
+  regular: 16,
   small: 12,
 };
 
