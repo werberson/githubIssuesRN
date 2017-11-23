@@ -5,8 +5,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     backgroundColor: colors.white,
-    justifyContent: 'space-between',
-    alignSelf: 'stretch',
     padding: 20,
     borderRadius: 5,
     marginTop: 20,
@@ -20,25 +18,22 @@ const styles = StyleSheet.create({
   infoContainer: {
     flex: 1,
     justifyContent: 'center',
-    // backgroundColor: '#343',
     paddingLeft: 10,
-    // alignItems: 'flex-start',
-    // backgroundColor: '#000'
   },
   name: {
-    color: colors.primary,
+    color: colors.dark,
     fontSize: fonts.regular,
     fontWeight: 'bold',
   },
   owner: {
     fontSize: fonts.small,
-    color: colors.inactive,
+    color: colors.grey,
   },
   forwardIconContainer: {
     justifyContent: 'center',
   },
   forwardIcon: {
-    color: colors.inactive,
+    color: colors.grey,
     fontSize: 20,
   },
 });
