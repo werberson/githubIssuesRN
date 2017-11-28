@@ -101,7 +101,9 @@ export default class Repositories extends Component {
       }
       data={this.state.repositories}
       keyExtractor={repository => repository.id}
-      renderItem={({ item }) => <Repository repository={item} />}
+      renderItem={
+        ({ item }) => <Repository repository={item} navigation={this.props.navigation} />
+      }
     />
   );
 
