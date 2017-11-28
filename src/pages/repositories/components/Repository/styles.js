@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     resizeMode: 'contain',
+    borderRadius: 3,
   },
   infoContainer: {
     flex: 1,

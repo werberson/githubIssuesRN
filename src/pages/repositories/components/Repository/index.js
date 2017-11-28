@@ -30,7 +30,7 @@ export default class Repository extends Component {
           <Text style={styles.owner}>{repository.owner.login}</Text>
         </View>
         <View style={styles.forwardIconContainer}>
-          <Icon name="angle-right" style={styles.forwardIcon}/>
+          <Icon name="angle-right" style={styles.forwardIcon} />
         </View>
       </View>
     );

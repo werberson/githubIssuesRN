@@ -3,45 +3,62 @@ import React, { Component } from 'react';
 import {
   View,
   TextInput,
+  Alert,
+  ActivityIndicator,
   TouchableOpacity,
 } from 'react-native';
 
+import PropTypes from 'prop-types';
+
 import Icon from 'react-native-vector-icons/FontAwesome';
-import repositoryService from 'services/repositoryService';
-import api from 'services/api';
 import styles from './styles';
 
 export default class Header extends Component {
+  static propTypes = {
+    handleAddRepository: PropTypes.func.isRequired,
+  };
 
   state = {
     repositoryName: '',
+    loading: false,
   };
 
-  addRepository = async () => {
-    if (this.state.repositoryName.length === 0) return;
-
-    const response = await api.get(`/repos/${this.state.repositoryName}`);
-    if (!response.ok) throw Error();
-
-    // TODO filtrar attributes
-    const repository = response.data;
-
-    repositoryService.save(repository).then(result => console.tron.log(result));
+  handleAddRepository = (name) => {
+    this.setState({ loading: true });
+    this.props.handleAddRepository(name)
+      .then(() => this.setState({ repositoryName: '', loading: false }))
+      .catch((error) => {
+        this.setState({ loading: false });
+        Alert.alert(
+          'Atenção',
+          error.message,
+          [
+            { text: 'OK' },
+          ],
+          { cancelable: false },
+        );
+      });
   };
 
   render() {
     return (
       <View style={styles.container}>
         <TextInput
+          underlineColorAndroid="transparent"
           autoCapitalize="none"
           autoCorrect={false}
           style={styles.input}
           placeholder="Adicionar repositório"
+          value={this.state.repositoryName}
           onChangeText={(repositoryName) => { this.setState({ repositoryName }); }}
         />
         <View style={styles.addButtonContainer}>
-          <TouchableOpacity onPress={this.addRepository}>
-            <Icon name="plus" style={styles.addIcon} />
+          <TouchableOpacity onPress={() => this.handleAddRepository(this.state.repositoryName)}>
+            {
+              this.state.loading
+                ? <ActivityIndicator size="small" color="#999" />
+                : <Icon name="plus" style={styles.addIcon} />
+            }
           </TouchableOpacity>
         </View>
       </View>

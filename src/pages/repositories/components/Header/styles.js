@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   addButtonContainer: {
-    marginLeft: 15,
+    minWidth: 20,
+    marginLeft: 20,
   },
   addIcon: {
     fontSize: fonts.regular,
