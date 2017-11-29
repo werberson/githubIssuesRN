@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import {
   View,
+  Linking,
   FlatList,
   RefreshControl,
   ActivityIndicator,
@@ -79,8 +80,11 @@ export default class Issues extends Component {
         />
       }
       data={this.state.issues}
-      keyExtractor={repository => repository.id}
-      renderItem={({ item }) => <Issue issue={item} onPress={() => null} />}
+      keyExtractor={issue => issue.id}
+      renderItem={
+        ({ item }) =>
+          <Issue issue={item} onPress={() => Linking.openURL(item.html_url)} />
+      }
     />
   );
 

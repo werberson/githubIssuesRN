@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 
 const Issue = ({ issue, onPress }) => (
-  <TouchableOpacity onPress={() => onPress(issue)}>
+  <TouchableOpacity onPress={() => onPress()}>
     <View style={styles.container}>
       <Image
         style={styles.avatar}
