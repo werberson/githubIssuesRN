@@ -64,7 +64,8 @@ export default class Repositories extends Component {
   handleAddRepository = async (repositoryName) => {
     if (repositoryName.length === 0) return;
 
-    if (!/^.+?\/.+$/.test(repositoryName)) throw new Error('O nome do respositório é composto por owner/name');
+    const REPOSITORY_NAME_PATTERN = /^[a-zA-Z0-9_.-]+?\/{1}[a-zA-Z0-9_.-]+$/;
+    if (!REPOSITORY_NAME_PATTERN.test(repositoryName)) throw new Error('O nome do respositório é composto por owner/name');
 
     const response = await api.get(`/repos/${repositoryName}`);
     if (!response.ok) throw new Error('Repositório não encontrado.');
