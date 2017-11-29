@@ -57,6 +57,10 @@ export default class Repositories extends Component {
     this.setState({ repositories, refreshing: false });
   };
 
+  handleNavigateToIssues(repository) {
+    this.props.navigation.navigate('Issues', { repository });
+  }
+
   handleAddRepository = async (repositoryName) => {
     if (repositoryName.length === 0) return;
 
@@ -101,8 +105,8 @@ export default class Repositories extends Component {
       }
       data={this.state.repositories}
       keyExtractor={repository => repository.id}
-      renderItem={
-        ({ item }) => <Repository repository={item} navigation={this.props.navigation} />
+      renderItem={({ item }) =>
+        <Repository repository={item} onPress={this.handleNavigateToIssues.bind(this)} />
       }
     />
   );

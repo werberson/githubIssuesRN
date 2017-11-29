@@ -5,8 +5,8 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 
-const Repository = ({ repository, navigation }) => (
-  <TouchableOpacity onPress={() => navigation.navigate('Issues')}>
+const Repository = ({ repository, onPress }) => (
+  <TouchableOpacity onPress={() => onPress(repository)}>
     <View style={styles.container}>
       <Image
         style={styles.avatar}
@@ -32,9 +32,7 @@ Repository.propTypes = {
     name: PropTypes.string,
     issues_url: PropTypes.string,
   }).isRequired,
-  navigation: PropTypes.shape({
-    dispatch: PropTypes.func,
-  }).isRequired,
+  onPress: PropTypes.func.isRequired,
 };
 
 export default Repository;
