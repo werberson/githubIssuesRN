@@ -90,7 +90,7 @@ export default class Repositories extends Component {
         <EmptyList
           icon="github-alt"
           text="Nenhum repositório encontrado"
-          instruction="Informe o nome do repositório na barra de pesquisa e clique no ícone + para salvar."
+          description="Informe o nome do repositório na barra de pesquisa e clique no ícone + para salvar."
         />
       )
   );

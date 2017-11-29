@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     color: colors.inactive,
     fontWeight: 'bold',
   },
-  instruction: {
+  description: {
     color: colors.inactive,
     textAlign: 'center',
     fontSize: fonts.small,
