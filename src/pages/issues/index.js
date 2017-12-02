@@ -14,6 +14,7 @@ import EmptyList from 'components/EmptyList';
 import api from 'services/api';
 import Header from './components/Header';
 import Issue from './components/Issue';
+import FilterBar from './components/FilterBar';
 import styles from './styles';
 
 export default class Issues extends Component {
@@ -35,11 +36,11 @@ export default class Issues extends Component {
     }).isRequired,
   };
 
-
   state = {
     issues: [],
     loading: false,
     refreshing: false,
+    selectedFilterValue: 'all',
   };
 
   componentWillMount() {
@@ -47,17 +48,39 @@ export default class Issues extends Component {
     this.loadIssues().then(() => this.setState({ loading: false }));
   }
 
+  filters = [
+    {
+      value: 'all',
+      label: 'Todas',
+    },
+    {
+      value: 'open',
+      label: 'Abertas',
+    },
+    {
+      value: 'closed',
+      label: 'Fechadas',
+    },
+  ];
+
   loadIssues = async () => {
     this.setState({ refreshing: true });
     const { repository } = this.props.navigation.state.params;
 
-    const response = await api.get(`/repos/${repository.owner.login}/${repository.name}/issues`);
+    const response = await api.get(`/repos/${repository.owner.login}/${repository.name}/issues?state=${this.state.selectedFilterValue}`);
 
     console.tron.log(response.data);
 
     if (!response.ok) throw new Error('Repositório não encontrado.');
     this.setState({ refreshing: false, issues: response.data });
   };
+
+  handleSelectFilter(value) {
+    this.setState(
+      { selectedFilterValue: value },
+      () => this.loadIssues().then(() => this.setState({ loading: false })),
+    );
+  }
 
   renderList = () => (
     this.state.issues.length
@@ -81,6 +104,13 @@ export default class Issues extends Component {
       }
       data={this.state.issues}
       keyExtractor={issue => issue.id}
+      ListHeaderComponent={() => (
+        <FilterBar
+          filters={this.filters}
+          selectedValue={this.state.selectedFilterValue}
+          onChange={this.handleSelectFilter.bind(this)}
+        />
+      )}
       renderItem={
         ({ item }) =>
           <Issue issue={item} onPress={() => Linking.openURL(item.html_url)} />
