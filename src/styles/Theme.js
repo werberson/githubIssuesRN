@@ -3,6 +3,7 @@ import { Platform } from 'react-native';
 const colors = {
   white: '#FFF',
   light: '#EEE',
+  clear: '#DDD',
   dark: '#333',
   darker: '#666',
   inactive: '#878EA0',
