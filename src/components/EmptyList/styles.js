@@ -11,10 +11,8 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: colors.inactive,
-    // paddingBottom: 10,
   },
   text: {
-    // fontSize: fonts.big,
     color: colors.inactive,
     fontWeight: 'bold',
   },
