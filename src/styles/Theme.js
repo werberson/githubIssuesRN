@@ -8,10 +8,6 @@ const colors = {
   darker: '#666',
   inactive: '#878EA0',
   grey: '#999',
-  primary: '#444A5A',
-  secondary: '#7A91CA',
-  error: '#FF5A5A',
-  background: '#FBFAFF',
 };
 
 const metrics = {
