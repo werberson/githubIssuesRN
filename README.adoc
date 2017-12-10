@@ -1,0 +1,22 @@
+:rn: https://github.com/facebook/react-native
+:mitlicense: http://en.wikipedia.org/wiki/MIT_License
+= Github Issues App
+
+IMPORTANT: This project was developed with the purpose of studying {rn}[React Native].
+
+What this app do?
+
+* Persist a github repository
+* Show list of issues from a persisted repository
+* Filter issues by state
+
+== Demo
+
+image::docs/demo.gif[App demosntration]
+
+
+== License
+{mitlicense}[MIT License]
+
+
+
