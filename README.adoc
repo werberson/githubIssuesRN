@@ -1,5 +1,5 @@
 :rn: https://github.com/facebook/react-native
-:mitlicense: http://en.wikipedia.org/wiki/MIT_License
+
 = Github Issues App
 
 [NOTE]
@@ -17,7 +17,10 @@ image::docs/demo.gif[App demosntration]
 
 
 == License
-{mitlicense}[MIT License]
+
+[link=http://www.wtfpl.net/about]
+image::http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-1.png[WTFPL]
+
 
 
 
