@@ -2,13 +2,14 @@
 :mitlicense: http://en.wikipedia.org/wiki/MIT_License
 = Github Issues App
 
-IMPORTANT: This project was developed with the purpose of studying {rn}[React Native].
+[NOTE]
+This project was developed with the purpose of studying {rn}[React Native].
 
-What this app do?
+== App features
 
-* Persist a github repository
-* Show list of issues from a persisted repository
-* Filter issues by state
+* Persists a github repository
+* Shows a list of issues from a persisted repository
+* Filters issues by state
 
 == Demo
 
